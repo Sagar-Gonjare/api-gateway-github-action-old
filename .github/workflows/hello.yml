@@ -1,15 +1,18 @@
-name: Learn basic of GitHub Action
+name: GitHub Action
 
 on:
   push:
     branches:
-      -  main
+      - main
 
 jobs:
-  hello-world:
+  mavenBuild:
     runs-on: ubuntu-latest
+
     container:
-      image: alpine:latest
+      image: maven:latest
+      
     steps:
-      - name: print hellow
-        run: cat /etc/os-release
+     
+      - name: Run Maven clean install
+        run: mvn clean install
