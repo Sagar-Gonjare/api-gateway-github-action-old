@@ -11,10 +11,17 @@ jobs:
     container:
       image: alpine:latest
     steps:
+     
+        
       - name: install java
         run:  |
              apk add --no-cache $JDK_VERSION
              java --version
+             echo "MAVEN_VESRION=1234" >> $GITHUB_ENV
+
+      - name: print maven-vesion
+        run: echo $ MAVEN_VESRION
+         
   print-env:
      runs-on: ubuntu-latest
      container:
