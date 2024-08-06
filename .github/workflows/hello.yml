@@ -21,6 +21,14 @@ jobs:
 
       - name: print maven-vesion
         run: echo $MAVEN_VESRION
+
+  print-maven-version:
+     runs-on: ubuntu-latest
+     steps:
+        - name: print maven version
+          run : echo $MAVEN_VERSION
+       
+
          
   print-env:
      runs-on: ubuntu-latest
