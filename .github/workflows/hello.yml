@@ -1,18 +1,21 @@
 name: GitHub Action
-
 on:
   push:
     branches:
-      - main
-
+      -  master
 jobs:
-  mavenBuild:
+  print-os-release:
     runs-on: ubuntu-latest
-
-    container:
-      image: maven:latest
-      
     steps:
-     
-      - name: Run Maven clean install
-        run: mvn clean install
+      - name: print os-release
+        run: cat /etc/os-release
+        
+  install-java:
+    runs-on: ubuntu-latest
+    container:
+      image: alpine:latest
+    steps:
+      - name: install java
+        run: apk add --no-cache openjdk11-jdk
+      - name: print java -version
+        run: java --version
