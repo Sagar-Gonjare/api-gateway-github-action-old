@@ -12,7 +12,9 @@ public class RouterConfig {
   public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
     return builder
         .routes()
-        .route("directory_public_route",r -> r.path("/api/v1/public/auth/**").uri("http://localhost:8081"))
+        .route(
+            "directory_public_route",
+            r -> r.path("/api/v1/public/auth/**").uri("http://localhost:8081"))
         .route("directory_route", r -> r.path("/api/v1/auth/**").uri("http://localhost:8081"))
         .route("customer_route", r -> r.path("/api/v1/customer/**").uri("http://localhost:8083"))
         .build();
